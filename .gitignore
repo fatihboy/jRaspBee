@@ -12,3 +12,4 @@ hs_err_pid*
 # Ignore binaries and Eclipse files
 .metadata/*
 bin/*
+/target/
