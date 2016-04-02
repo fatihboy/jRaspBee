@@ -438,7 +438,122 @@ public class RaspBeeBridge {
 
         handleErrors(result);
     }
+    
+    /**
+     * Creates a new Scene for given group.
+     * It will automatically fail with an IOException, because there
+     * will be no response. 
+     *
+     * @param groupId group id to create scene for
+     * @param name scene name to create
+     * @return created scene id
+     * @throws UnauthorizedException thrown if the user no longer exists
+     */
+    public String createScene(Group group, String name) throws IOException, ApiException {
+    	requireAuthentication();
+    	
+    	if (!group.isModifiable()) {
+            throw new IllegalArgumentException("Group cannot be modified");
+        }
+    	
+    	String body = gson.toJson(new CreateSceneRequest(name));
+        Result result = http.post(getRelativeURL("groups/"+ enc(group.getId()) + "/scenes"), body);
 
+        handleErrors(result);
+        
+        List<SuccessResponse> entries = safeFromJson(result.getBody(), SuccessResponse.gsonType);
+        SuccessResponse response = entries.get(0);
+
+        return (String) response.success.get("id");
+    }
+
+    /**
+     * Returns a list of scenes for given group on the bridge.
+     *
+     * @param groupId group id to list scenes
+     * @return scenes
+     * @throws UnauthorizedException thrown if the user no longer exists
+     */
+    public List<Scene> getScenes(Group group) throws IOException, ApiException {
+        requireAuthentication();
+        
+        if (!group.isModifiable()) {
+            throw new IllegalArgumentException("Group cannot be modified");
+        }
+        
+        Result result = http.get(getRelativeURL("groups/"+ enc(group.getId()) + "/scenes"));
+        
+        handleErrors(result);
+
+        Map<String, Scene> sceneMap = safeFromJson(result.getBody(), Scene.gsonType);
+
+        ArrayList<Scene> sceneList = new ArrayList<Scene>();
+
+        for (String id : sceneMap.keySet()) {
+        	Scene scene = sceneMap.get(id);
+            scene.setId(id);
+            scene.setGroupId(group.getId());
+            sceneList.add(scene);
+        }
+
+        return sceneList;
+    }
+    
+    /**
+     * Changes the name of the scene and returns the new name.
+     * A number will be appended to duplicate names, which may result in a new name exceeding 32 characters.
+     *
+     * @param scene scene
+     * @param name new name [0..32]
+     * @return new name
+     * @throws UnauthorizedException thrown if the user no longer exists
+     * @throws EntityNotAvailableException thrown if the specified scene no longer exists
+     */
+    public String setSceneName(Scene scene, String name) throws IOException, ApiException {
+        requireAuthentication();
+
+        String body = gson.toJson(new SetAttributesRequest(name));
+        Result result = http.put(getRelativeURL("groups/" + enc(scene.getGroupId()) + "/scenes/" + enc(scene.getId())), body);
+
+        handleErrors(result);
+
+        List<SuccessResponse> entries = safeFromJson(result.getBody(), SuccessResponse.gsonType);
+        SuccessResponse response = entries.get(0);
+
+        return (String) response.success.get("/groups/" + enc(scene.getGroupId()) + "/scenes/" + enc(scene.getId()) + "/name");
+    }
+    
+    public void storeScene(Scene scene)  throws IOException, ApiException {
+    	requireAuthentication();
+    	
+    	Result result = http.put(getRelativeURL("groups/" + enc(scene.getGroupId()) + "/scenes/" + enc(scene.getId()) + "/store"), null);
+
+        handleErrors(result);
+    }
+    
+    public void recallScene(Scene scene)  throws IOException, ApiException {
+    	requireAuthentication();
+    	
+    	Result result = http.put(getRelativeURL("groups/" + enc(scene.getGroupId()) + "/scenes/" + enc(scene.getId()) + "/recall"));
+
+        handleErrors(result);
+    }
+    
+    /**
+     * Delete a scene.
+     *
+     * @param scene scene
+     * @throws UnauthorizedException thrown if the user no longer exists
+     * @throws EntityNotAvailableException thrown if the scene no longer exists
+     */
+    public void deleteScene(Scene scene) throws IOException, ApiException {
+        requireAuthentication();
+
+        Result result = http.delete(getRelativeURL("groups/" + enc(scene.getGroupId()) + "/scenes/" + enc(scene.getId())));
+
+        handleErrors(result);
+    }
+      
     /**
      * Returns a list of schedules on the bridge.
      *
@@ -707,6 +822,7 @@ public class RaspBeeBridge {
         }
 
         String body = gson.toJson(request);
+        
         Result result = http.post(getRelativeURL(""), body);
 
         handleErrors(result);
@@ -765,7 +881,7 @@ public class RaspBeeBridge {
 
         return gson.fromJson(result.getBody(), FullConfig.class);
     }
-
+    
     // Used as assert in requests that require authentication
     private void requireAuthentication() {
         if (this.username == null) {
