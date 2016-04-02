@@ -30,9 +30,17 @@ class HttpClient {
     public Result post(String address, String body) throws IOException {
         return doNetwork(address, "POST", body);
     }
+    
+    public Result post(String address) throws IOException {
+        return post(address, "");
+    }
 
     public Result put(String address, String body) throws IOException {
         return doNetwork(address, "PUT", body);
+    }
+    
+    public Result put(String address) throws IOException {
+        return put(address, "");
     }
 
     public Result delete(String address) throws IOException {
@@ -57,7 +65,8 @@ class HttpClient {
             InputStream in = new BufferedInputStream(conn.getInputStream());
             String output = convertStreamToString(in);
             return new Result(output, conn.getResponseCode());
-        } finally {
+        }
+        finally {
             conn.disconnect();
         }
     }
