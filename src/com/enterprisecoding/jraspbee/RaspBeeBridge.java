@@ -881,6 +881,42 @@ public class RaspBeeBridge {
 
         return gson.fromJson(result.getBody(), FullConfig.class);
     }
+
+    public void touchlinkScan()  throws IOException, ApiException{
+    	 requireAuthentication();
+
+         Result result = http.post(getRelativeURL("touchlink/scan"));
+
+         handleErrors(result);
+    }
+    
+    public TouchlinkScanResponse getTouchlinkScanResult()  throws IOException, ApiException {
+    	 requireAuthentication();
+
+         Result result = http.get(getRelativeURL("touchlink/scan"));
+
+         handleErrors(result);
+         
+         TouchlinkScanResponse response = gson.fromJson(result.getBody(), TouchlinkScanResponse.class);
+         
+         return response;
+    }
+
+    public void touchlinkIdentify(Device device) throws IOException, ApiException {
+    	requireAuthentication();
+    	
+    	Result result = http.post(getRelativeURL("touchlink/" + device.getId() + "/identify"));
+
+        handleErrors(result);
+    }
+    
+    public void touchlinkReset(Device device) throws IOException, ApiException {
+    	requireAuthentication();
+    	
+    	Result result = http.post(getRelativeURL("touchlink/" + device.getId() + "/reset"));
+
+        handleErrors(result);
+    }
     
     // Used as assert in requests that require authentication
     private void requireAuthentication() {
