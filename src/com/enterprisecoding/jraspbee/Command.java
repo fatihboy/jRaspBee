@@ -7,7 +7,7 @@
  */
 package com.enterprisecoding.jraspbee;
 
-import com.enterprisecoding.gson.Gson;
+import com.google.gson.Gson;
 
 class Command {
     private String key;

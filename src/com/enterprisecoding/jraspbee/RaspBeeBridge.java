@@ -29,11 +29,11 @@ import com.enterprisecoding.jraspbee.exceptions.MissingParametersException;
 import com.enterprisecoding.jraspbee.exceptions.ParameterNotAvailableException;
 import com.enterprisecoding.jraspbee.exceptions.ParameterNotModifiableException;
 import com.enterprisecoding.jraspbee.exceptions.UnauthorizedException;
-import com.enterprisecoding.gson.Gson;
-import com.enterprisecoding.gson.GsonBuilder;
-import com.enterprisecoding.gson.JsonElement;
-import com.enterprisecoding.gson.JsonParseException;
-import com.enterprisecoding.gson.JsonParser;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 
 /**
  * Representation of a connection with a Hue bridge.

@@ -10,7 +10,7 @@ package com.enterprisecoding.jraspbee;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import com.enterprisecoding.gson.reflect.TypeToken;
+import com.google.gson.reflect.TypeToken;
 
 class ErrorResponse {
     public final static Type gsonType = new TypeToken<List<ErrorResponse>>() {

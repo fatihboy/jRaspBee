@@ -9,7 +9,7 @@ package com.enterprisecoding.jraspbee;
 
 import java.util.Date;
 
-import com.enterprisecoding.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * A whitelisted user.

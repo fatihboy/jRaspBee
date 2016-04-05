@@ -7,7 +7,7 @@
  */
 package com.enterprisecoding.jraspbee;
 
-import com.enterprisecoding.gson.JsonElement;
+import com.google.gson.JsonElement;
 
 /**
  * Information about a scheduled command.
