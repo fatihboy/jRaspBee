@@ -2,7 +2,14 @@
 
 [![Build Status](https://travis-ci.org/fatihboy/jRaspBee.svg?branch=master)](https://travis-ci.org/fatihboy/jRaspBee)
 
-jRaspBee is a Java library allowing developers to easily use the features offered by a RaspBee bridge. The library refers [deconz-rest-plugin (official RaspBee Rest API)](https://github.com/dresden-elektronik/deconz-rest-plugin) and a fork of **[Jue](https://github.com/Q42/Jue)**
+jRaspBee is a Java library allowing developers to easily use the features offered by a RaspBee bridge. The library refers [deconz-rest-plugin (official RaspBee Rest API)](https://github.com/dresden-elektronik/deconz-rest-plugin)
+
+### Credits
+jRaspBee is a fork of [`Jue`](https://github.com/Q42/Jue) library from [`Q42`](https://github.com/Q42).
+
+## Documentation
+
+If this is your first time using the library, have a look at the [wiki pages](https://github.com/fatihboy/jRaspBee/wiki) for tutorials to learn how to use this library. These will outline the organization and usage patterns.
 
 ## License
 jRaspBee is licensed under MIT, of which the terms are outlined in the LICENSE file.
