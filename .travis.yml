@@ -4,9 +4,7 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-install: 
-   - ./libs/gson/create_enterprisecoding_gson.sh
-   - mvn install -DskipTests=true
+install: mvn install -DskipTests=true
 script: mvn test
 
 notifications:
