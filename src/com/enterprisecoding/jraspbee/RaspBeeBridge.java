@@ -69,6 +69,7 @@ public class RaspBeeBridge {
      * @param ip ip address of bridge
      * @param port port of bridge
      * @param username username to authenticate with
+     * @throws UnauthorizedException thrown if authentication failed
      */
     public RaspBeeBridge(String ip, String port, String username) throws IOException, ApiException {
         this.ip = ip;
@@ -444,7 +445,7 @@ public class RaspBeeBridge {
      * It will automatically fail with an IOException, because there
      * will be no response. 
      *
-     * @param groupId group id to create scene for
+     * @param group group to create scene for
      * @param name scene name to create
      * @return created scene id
      * @throws UnauthorizedException thrown if the user no longer exists
@@ -470,7 +471,7 @@ public class RaspBeeBridge {
     /**
      * Returns a list of scenes for given group on the bridge.
      *
-     * @param groupId group id to list scenes
+     * @param group group to list scenes
      * @return scenes
      * @throws UnauthorizedException thrown if the user no longer exists
      */

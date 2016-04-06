@@ -1,3 +1,7 @@
+/* jRaspBee - a Java library for RaspBee bridge
+ *  Copyright (c) 2016 Fatih Boy (http://enterprisecoding.com)
+ *  Licensed under the MIT (LICENSE).
+ */
 package com.enterprisecoding.jraspbee;
 
 import java.util.ArrayList;
