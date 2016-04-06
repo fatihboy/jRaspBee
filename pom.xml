@@ -6,6 +6,32 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>jRaspBee</name>
 	<description>jRaspBee; a Java library allowing developers to easily use the features offered by a RaspBee bridge.</description>
+	<url>https://github.com/fatihboy/jRaspBee</url>
+	<organization>
+		<url>http://enterprisecoding.com</url>
+		<name>Enterprisecoding</name>
+	</organization>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<scm>
+		<url>https://github.com/fatihboy/jraspbee/</url>
+		<connection>scm:git:https://github.com/fatihboy/jraspbee.git</connection>
+		<developerConnection>scm:git:git@github.com:fatihboy/jraspbee.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/fatihboy/jraspbee/issues</url>
+	</issueManagement>
+	<licenses>
+		<license>
+			<name>The MIT License</name>
+			<url>https://raw.githubusercontent.com/fatihboy/jRaspBee/master/LICENSE</url>
+		</license>
+	</licenses>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -24,37 +50,47 @@
 				</excludes>
 			</resource>
 		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source />
+						<target />
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<useDefaultManifestFile>true</useDefaultManifestFile>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9</version>
+					</dependency>
+				</dependencies>
 				<configuration>
-					<source />
-					<target />
+					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
-	<organization>
-		<url>http://enterprisecoding.com</url>
-		<name>Enterprisecoding</name>
-	</organization>
-	<url>https://github.com/fatihboy/jRaspBee</url>
+
 </project>
