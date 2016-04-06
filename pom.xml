@@ -14,15 +14,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<scm>
-		<url>https://github.com/fatihboy/jraspbee/</url>
-		<connection>scm:git:https://github.com/fatihboy/jraspbee.git</connection>
-		<developerConnection>scm:git:git@github.com:fatihboy/jraspbee.git</developerConnection>
+		<url>https://github.com/fatihboy/jRaspBee/</url>
+		<connection>scm:git:https://github.com/fatihboy/jRaspBee.git</connection>
+		<developerConnection>scm:git:git@github.com:fatihboy/jRaspBee.git</developerConnection>
 		<tag>jraspbee-1.0</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/fatihboy/jraspbee/issues</url>
+		<url>https://github.com/fatihboy/jRaspBee/issues</url>
 	</issueManagement>
 	<licenses>
 		<license>
