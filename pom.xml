@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.enterprisecoding</groupId>
 	<artifactId>jraspbee</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>jRaspBee</name>
 	<description>jRaspBee; a Java library allowing developers to easily use the features offered by a RaspBee bridge.</description>
 	<url>https://github.com/fatihboy/jRaspBee</url>
@@ -32,7 +31,7 @@
 		<url>https://github.com/fatihboy/jRaspBee/</url>
 		<connection>scm:git:https://github.com/fatihboy/jRaspBee.git</connection>
 		<developerConnection>scm:git:git@github.com:fatihboy/jRaspBee.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>jraspbee-1.0</tag>
 	</scm>
 
 	<issueManagement>
