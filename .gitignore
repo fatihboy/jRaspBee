@@ -1,4 +1,10 @@
 .DS_Store
+.classpath
+.project
+.settings
+eclipsebin
+pom.xml.*
+release.properties
 
 *.class
 
@@ -13,3 +19,5 @@ hs_err_pid*
 .metadata/*
 bin/*
 /target/
+target
+*/target
