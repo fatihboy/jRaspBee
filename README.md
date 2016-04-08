@@ -1,7 +1,7 @@
 # jRaspBee
 
 [![Build Status](https://travis-ci.org/fatihboy/jRaspBee.svg?branch=master)](https://travis-ci.org/fatihboy/jRaspBee)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.enterprisecoding/jraspbee/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.enterprisecoding/gson)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.enterprisecoding/jraspbee/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.enterprisecoding/jraspbee)
 [![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.enterprisecoding/jraspbee/badge.svg)](http://www.javadoc.io/doc/com.enterprisecoding/jraspbee)
 
 jRaspBee is a Java library allowing developers to easily use the features offered by a RaspBee bridge. The library refers [deconz-rest-plugin (official RaspBee Rest API)](https://github.com/dresden-elektronik/deconz-rest-plugin)
